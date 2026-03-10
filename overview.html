@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview - CVD Accessibility</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'], serif: ['"Playfair Display"', 'serif'] },
+                    colors: { paper: '#F4F3EE', ink: '#1C1A1A' },
+                    animation: { 'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards' },
+                    keyframes: {
+                        fadeInUp: { '0%': { opacity: 0, transform: 'translateY(20px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen bg-paper text-ink font-sans flex flex-col selection:bg-rose-400 selection:text-white overflow-x-hidden">
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-paper/80 backdrop-blur-lg py-5 border-b border-ink/5">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-serif font-bold tracking-tight flex items-center gap-2">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-indigo-500 italic">CVD</span>
+            <span class="hidden sm:inline font-sans text-xs tracking-[0.2em] font-light uppercase text-ink/60 mt-1">Accessibility</span>
+        </a>
+        <div class="hidden md:flex space-x-10 text-xs uppercase tracking-[0.15em] font-medium text-ink/70">
+            <a href="index.html" class="hover:text-rose-500 hover:border-b hover:border-rose-500 pb-1 transition-all">Home</a>
+            <a href="overview.html" class="hover:text-rose-500 hover:border-b hover:border-rose-500 pb-1 transition-all">Overview</a>
+            <a href="features.html" class="hover:text-rose-500 hover:border-b hover:border-rose-500 pb-1 transition-all">Features</a>
+            <a href="architecture.html" class="hover:text-rose-500 hover:border-b hover:border-rose-500 pb-1 transition-all">Architecture</a>
+            <a href="roadmap.html" class="hover:text-rose-500 hover:border-b hover:border-rose-500 pb-1 transition-all">Roadmap</a>
+            <a href="contact.html" class="hover:text-rose-500 hover:border-b hover:border-rose-500 pb-1 transition-all">Contact</a>
+        </div>
+        <button id="menu-toggle" class="md:hidden text-ink z-50 relative p-2">
+            <i data-lucide="menu" id="menu-icon" stroke-width="1.5" width="28" height="28"></i>
+        </button>
+    </div>
+</nav>
+
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-paper/95 backdrop-blur-2xl flex flex-col justify-center items-center text-ink transition-all duration-500 ease-in-out opacity-0 pointer-events-none">
+    <div class="flex flex-col space-y-8 text-center text-4xl font-serif italic w-full px-6">
+        <a href="index.html" class="hover:text-rose-500 transition-all mobile-link">Home</a>
+        <a href="overview.html" class="hover:text-rose-500 transition-all mobile-link">Overview</a>
+        <a href="features.html" class="hover:text-rose-500 transition-all mobile-link">Core Features</a>
+        <a href="architecture.html" class="hover:text-rose-500 transition-all mobile-link">Architecture</a>
+        <a href="roadmap.html" class="hover:text-rose-500 transition-all mobile-link">Roadmap</a>
+        <a href="contact.html" class="hover:text-rose-500 transition-all mobile-link">Contact</a>
+    </div>
+</div>
+
+    <section class="pt-32 pb-24 px-6 md:px-12 flex-grow flex items-center">
+        <div class="max-w-4xl mx-auto w-full">
+            <div class="mb-12 md:mb-16 border-l border-rose-400 pl-6 md:pl-8 opacity-0 animate-fade-in-up">
+                <div class="uppercase tracking-[0.2em] text-[10px] font-bold text-ink/50 mb-4">Chapter 01 // The Problem</div>
+                <h2 class="text-4xl sm:text-5xl md:text-7xl font-serif italic mb-6 leading-tight">Bridging the Gap <br> in Visual <span class="text-rose-500">Perception.</span></h2>
+            </div>
+            
+            <div class="prose prose-lg sm:prose-xl text-ink/80 font-light leading-relaxed pl-6 md:pl-24">
+                <p class="opacity-0 animate-fade-in-up mb-8 text-xl sm:text-2xl font-serif italic text-ink" style="animation-delay: 150ms;">"Design is only truly successful when it is accessible to everyone. This tool turns empathy into an actionable engineering process."</p>
+                
+                <p class="opacity-0 animate-fade-in-up mb-8 text-sm sm:text-base" style="animation-delay: 300ms;">Color Vision Deficiency (CVD) affects approximately 1 in 12 men and 1 in 200 women globally. In digital design and e-commerce—particularly in interior design and furniture visualization—color communication is critical. Users with CVD often struggle to accurately perceive material colors, leading to mismatched aesthetics and a frustrating user experience.</p>
+                
+                <p class="opacity-0 animate-fade-in-up text-sm sm:text-base" style="animation-delay: 450ms;">This final year project bridges the gap by integrating real-time CVD simulation directly into a 3D product viewer. Built with React and Three.js, the application allows users to experience digital furniture models through various simulated color profiles. Designers can ensure their color palettes are accessible, and end-users can make informed decisions regardless of their visual capabilities.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 sm:py-12 px-6 md:px-12 mt-auto border-t border-ink/10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-sm font-serif italic text-ink/60">CVD Accessibility Project</div>
+            <div class="text-[10px] uppercase tracking-widest text-ink/40" id="footer-year">© </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        document.getElementById('footer-year').innerHTML += new Date().getFullYear();
+        const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIcon = document.getElementById('menu-icon');
+const mobileLinks = document.querySelectorAll('.mobile-link');
+let isMenuOpen = false;
+
+function toggleMenu() {
+    isMenuOpen = !isMenuOpen;
+    if (isMenuOpen) {
+        // Show menu
+        mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+        mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+        menuIcon.setAttribute('data-lucide', 'x');
+        document.body.style.overflow = 'hidden';
+    } else {
+        // Hide menu
+        mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+        mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+        menuIcon.setAttribute('data-lucide', 'menu');
+        document.body.style.overflow = '';
+    }
+    lucide.createIcons();
+}
+
+menuToggle.addEventListener('click', toggleMenu);
+mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if(isMenuOpen) toggleMenu();
+    });
+});
+    </script>
+</body>
+</html>
