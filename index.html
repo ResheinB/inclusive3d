@@ -8,15 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-        <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTCVTCCHNE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTCVTCCHNE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-ZTCVTCCHNE');
-</script>
+      gtag('config', 'G-ZTCVTCCHNE');
+    </script>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -373,20 +372,29 @@
                     const filterName = e.target.getAttribute('data-filter');
                     updateColors(filterName);
 
-                    // Update UI active states
+                    // 1. Reset ALL buttons to the unselected state
                     filterBtns.forEach(b => {
-                        b.classList.remove('bg-[#4361EE]', 'text-white');
-                        b.classList.add('bg-gray-100', 'hover:bg-gray-200');
-                        // Custom palette background logic for active states
-                        if(b.getAttribute('data-filter') === 'protanopia') b.style.backgroundColor = '';
-                        if(b.getAttribute('data-filter') === 'tritanopia') b.style.backgroundColor = '';
-                        if(b.getAttribute('data-filter') === 'achromatopsia') b.style.backgroundColor = '';
+                        // Remove all potential active background/text classes
+                        b.classList.remove('bg-[#4361EE]', 'bg-ink', 'text-white', 'text-paper', 'bg-gray-100');
+                        
+                        // Add the default inactive styling
+                        b.classList.add('bg-transparent', 'text-ink', 'hover:bg-ink/5');
+                        
+                        // Clear any inline styles from previous selections
+                        b.style.backgroundColor = '';
                     });
                     
-                    e.target.classList.remove('bg-gray-100', 'hover:bg-gray-200');
-                    e.target.classList.add('text-white');
+                    // 2. Apply active state to the CLICKED button
+                    // Remove the inactive text/bg classes
+                    e.target.classList.remove('bg-transparent', 'text-ink', 'hover:bg-ink/5');
                     
-                    if (filterName === 'normal') e.target.classList.add('bg-[#4361EE]');
+                    // Add the light text class for readability on dark backgrounds
+                    e.target.classList.add('text-paper');
+                    
+                    // Apply the specific active background
+                    if (filterName === 'normal') {
+                        e.target.classList.add('bg-ink'); 
+                    }
                     else if (filterName === 'protanopia') e.target.style.backgroundColor = '#7A7A3A';
                     else if (filterName === 'tritanopia') e.target.style.backgroundColor = '#438B8B';
                     else if (filterName === 'achromatopsia') e.target.style.backgroundColor = '#666666';
